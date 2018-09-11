@@ -6,6 +6,7 @@ export default {
         return {
             answer: [],
             customAnswer: null,
+            submitted: false,
         };
     },
     props: {
@@ -53,14 +54,18 @@ export default {
                 return {}
             }
         },
+        thankYouMessage: {
+            type: String,
+            default: 'Your answer has been submitted.',
+        }, 
     },
     computed: {
-        finalEndpoint() {
+        fieldGoalEndpoint() {
             if (this.fieldGoalFormKey) {
                 return `https://fieldgoal.io/f/${this.fieldGoalFormKey}`;
             }
 
-            return this.endpoint;
+            return null;
         },
         formattedAnswer() {
             if (this.answer instanceof Array && this.answer.length === 1) {
@@ -79,13 +84,16 @@ export default {
     },
     render() {
         return this.$scopedSlots.default({
+            allowCustomAnswer: this.allowCustomAnswer,
             buttonEvents: {
                 click: (e) => {
                     this.submit()
+                        .then(() => this.submitted = true)
                         .then((response) => this.afterSubmitHook(response))
                         .catch((error) => this.onSubmitErrorHook(error));
                 },
             },
+            buttonText: this.buttonText,
             choices: this.choices,
             choiceAttrs: {
                 value: this.answer,
@@ -114,14 +122,16 @@ export default {
                     this.customAnswer = e.target.value;
                 },
             },
-            endpoint: this.finalEndpoint,
+            endpoint: this.fieldGoalEndpoint || this.endpoint,
             inputType: this.inputType,
+            submitted: this.submitted,
+            thankYouMessage: this.thankYouMessage,
         });
     },
     methods: {
         submit() {
             return axios({
-                url: this.finalEndpoint,
+                url:  this.fieldGoalEndpoint || this.endpoint,
                 data: {
                     answer: this.formattedAnswer,
                     customAnswer: this.customAnswer,
