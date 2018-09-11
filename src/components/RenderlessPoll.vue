@@ -30,13 +30,17 @@ export default {
                 return {}
             }
         },
+        customAnswerLabel: {
+            type: String,
+            default: 'Other',
+        },
         endpoint: {
           type: String,
           default: '',
         },
         fieldGoalFormKey: {
             type: String,
-            default: null,
+            default: '',
         },
         multipleChoice: {
             type: Boolean,
@@ -122,6 +126,7 @@ export default {
                     this.customAnswer = e.target.value;
                 },
             },
+            customAnswerLabel: this.customAnswerLabel,
             endpoint: this.fieldGoalEndpoint || this.endpoint,
             inputType: this.inputType,
             submitted: this.submitted,
