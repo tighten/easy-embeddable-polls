@@ -1,28 +1,26 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <EasyStaticPoll
+      :allow-custom-answer="true"
+      field-goal-key="tGhtN"
+      :multiple-choice="true"
+      :choices="{
+        'one': 'This is the first choice',
+        'two': 'This is the first choice',
+        'three': 'This is the first choice',
+        'four': 'This is the first choice',
+      }"
+    />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import EasyStaticPoll from './components/EasyStaticPoll.vue';
 
 export default {
   name: 'app',
   components: {
-    HelloWorld,
+    EasyStaticPoll,
   },
 };
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
