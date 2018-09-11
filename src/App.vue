@@ -1,17 +1,30 @@
 <template>
-  <div id="app">
-    <EasyStaticPoll
-      :allow-custom-answer="true"
-      field-goal-key="tGhtN"
-      :multiple-choice="true"
-      :choices="{
-        'one': 'This is the first choice',
-        'two': 'This is the first choice',
-        'three': 'This is the first choice',
-        'four': 'This is the first choice',
-      }"
-    />
-  </div>
+    <div id="app">
+        <easy-static-poll
+            :multiple-choice="false"
+            :after-submit-hook="afterSubmit"
+            field-goal-form-key="tGhtN"
+            :choices="{ 'one': 'anotha one', 'two': 'anotha two' }"
+        >
+            <div slot-scope="{ buttonEvents, choices, choiceAttrs, choiceEvents, customAnswerAttrs, customAnswerEvents, endpoint, inputType }">
+                {{ endpoint }}
+                <div v-for="(choice, key) in choices" :key="key">
+                    <input :type="inputType"
+                        :id="key"
+                        :value="key"
+                        v-bind="choiceAttrs"
+                        v-on="choiceEvents" />
+                    <label :for="key">{{ choice }}</label>
+                </div>
+                <input placeholder="Custom Answer"
+                    v-bind="customAnswerAttrs"
+                    v-on="customAnswerEvents"
+                />
+                <button type="submit"
+                    v-on="buttonEvents">Submit This</button>
+            </div>
+        </easy-static-poll>
+    </div>
 </template>
 
 <script>
@@ -22,5 +35,10 @@ export default {
   components: {
     EasyStaticPoll,
   },
+  methods: {
+    afterSubmit(error) {
+        console.log('DONE', error)
+    }
+  }
 };
 </script>
