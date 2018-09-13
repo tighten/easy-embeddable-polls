@@ -89,28 +89,6 @@ A `RenderlessPoll` component is offered in addition to the `Poll` component for 
 The `RenderlessPoll` component follows the [renderless component pattern](https://adamwathan.me/renderless-components-in-vuejs/).
 We will not dive into the concept of renderless components in this documentation, instead recommending you read the previously linked article to familiarize yourself.
 
-Renderless components work by sending slot props up to their wrapper components. The slot props offered by `easy-static-polls` are outlined below:
-
-#### Slot Props
-
-| Name | Description |
-| :--- | :--- |
-| allowCustomAnswer | Whether or not users can enter a custom answer into your poll. Equal to value of `allowCustomAnswer` prop. |
-| buttonEvents | Events related to the submit poll button. Should be applied via `v-on` to your `<button>` element. |
-| buttonText | Text that will appear in the submit button. Equal to value of `buttonText` prop. |
-| choices | The options users can choose in your poll. Equal to value of `choices` prop. |
-| choiceAttrs | Attributes related to the poll choices. Should be applied via `v-bind` to your choice `<input>` elements. |
-| choiceEvents | Events related to the poll choices. Should be applied via `v-on` to your choice `<input>` elements. |
-| customAnswerChoiceAttrs | Attributes related to the custom answer choice input. Should be applied via `v-bind` to your custom answer choice `<input>` element. |
-| customAnswerChoiceEvents | Events related to the custom answer choice input. Should be applied via `v-on` to your custom answer choice `<input>` element. |
-| customAnswerInputAttrs | Attributes related to the custom answer text input. Should be applied via `v-bind` to your custom answer `<input>` element. |
-| customAnswerInputEvents | Events related to the custom answer text input. Should be applied via `v-on` to your custom answer `<input>` element. |
-| customAnswerLabel | The label that will appear for the custom answer option. Equal to value of `customAnswerLabel` prop. |
-| endpoint | The endpoint your poll will submit to. Equal to value of `endpoint` prop or FieldGoal URL if `fieldGoalFormKey` is present. |
-| inputType | Equal to "radio" if `multipleChoice` prop is false or "checkbox" if `multipleChoice` is true. |
-| submitted | A boolean denoating whether or not the form has been successfully submitted. |
-| thankYouMessage | A message that will be displayed after a user submits your poll. Equal to value of `thankYouMessage` prop. |
-
 ## License
 
 [MIT](https://github.com/tightenco/easy-static-polls/blob/master/LICENSE.md)

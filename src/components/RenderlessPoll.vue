@@ -108,7 +108,6 @@ export default {
       },
       choiceEvents: {
         input: (e) => {
-          this.customAnswerChoiceSelected = false;
           const value = e.target.value;
 
           if (this.multipleChoice) {
@@ -119,6 +118,7 @@ export default {
             }
           } else {
             this.answer = value;
+            this.customAnswerChoiceSelected = false;
           }
         },
       },
@@ -128,13 +128,14 @@ export default {
       },
       customAnswerChoiceEvents: {
         input: (e) => {
-          this.customAnswerChoiceSelected = true;
+          this.customAnswerChoiceSelected = ! this.customAnswerChoiceSelected;
 
           if (! this.multipleChoice) {
             this.answer = [];
           }
         },
       },
+      customAnswerChoiceSelected: this.customAnswerChoiceSelected,
       customAnswerInputAttrs: {
         value: this.customAnswer,
       },
