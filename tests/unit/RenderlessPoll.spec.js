@@ -10,8 +10,8 @@ describe('RenderlessPoll.vue', () => {
     expect(wrapper.vm.buttonText).toEqual('Submit Answer');
     expect(wrapper.vm.choices).toEqual({});
     expect(wrapper.vm.customAnswerLabel).toEqual('Other');
-    expect(wrapper.vm.endpoint).toEqual('');
-    expect(wrapper.vm.fieldGoalFormKey).toEqual('');
+    expect(wrapper.vm.endpoint).toEqual(undefined);
+    expect(wrapper.vm.fieldGoalFormKey).toEqual(undefined);
     expect(wrapper.vm.multipleChoice).toEqual(false);
     expect(wrapper.vm.requestConfig).toEqual({});
     expect(wrapper.vm.thankYouMessage).toEqual('Your answer has been submitted.');

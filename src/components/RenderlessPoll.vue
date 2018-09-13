@@ -37,11 +37,11 @@ export default {
     },
     endpoint: {
       type: String,
-      default: '',
+      default: undefined,
     },
     fieldGoalFormKey: {
       type: String,
-      default: '',
+      default: undefined,
     },
     multipleChoice: {
       type: Boolean,
@@ -50,7 +50,7 @@ export default {
     onSubmitErrorHook: {
       type: Function,
       default() {
-        return (error) => { console.error(error) };
+        return () => {};
       }
     },
     requestConfig: {
