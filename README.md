@@ -2,7 +2,7 @@
 
 ## Overview
 
-`easy-static-polls` provides you with Vue components for easily embedding polls into your website. Two component are offered out of the box:
+`easy-static-polls` provides you with Vue components for easily embedding polls into your website. Two components are offered out of the box:
 
 - A basic `Poll` configurable by use of props. Outputs simple markup with semantic class names.
 - A `RenderlessPoll` which follows the [renderless component pattern](https://adamwathan.me/renderless-components-in-vuejs/).
@@ -85,14 +85,13 @@ The basic `Poll` component offers a handful of props that allow you to customize
 
 ### RenderlessPoll
 
-As mentioned above, a `RenderlessPoll` component is offered in addition to the `Poll` component.
+A `RenderlessPoll` component is offered in addition to the `Poll` component for situations where you need to heavily customize the outputted markup of the poll.
 The `RenderlessPoll` component follows the [renderless component pattern](https://adamwathan.me/renderless-components-in-vuejs/).
-We will not dive into the concept of renderless components in this documentation, instead we recommend readubg the previously linked article to familiarize yourself.
-Simply speaking, if you find yourself in a situation where you need to heavily customize the outputted markup of the poll, you want to use the `RenderlessPoll`.
-
-#### Slot Props
+We will not dive into the concept of renderless components in this documentation, instead we recommend reading the previously linked article to familiarize yourself.
 
 Renderless components work by sending slot props up to their wrapper components. The slot props offered by `easy-static-polls` are outlined below:
+
+#### Slot Props
 
 | Name | Type | Default value | Description |
 | :--- | :--- | :--- | :--- |
