@@ -5,7 +5,7 @@
 `easy-static-polls` provides you with Vue components for easily embedding polls into your website. Two component are offered out of the box:
 
 - A basic `Poll` configurable by use of props. Outputs a simple HTML structure with semantic class names.
-- A `RenderlessPoll` which follows the [renderless component pattern](https://adamwathan.me/renderless-components-in-vuejs/). This option gives you complete control over the output of the poll while still letting `easy-static-polls` handle the business logic.
+- A `RenderlessPoll` which follows the [renderless component pattern](https://adamwathan.me/renderless-components-in-vuejs/). This option gives you complete control over the output of the poll while still allowing `easy-static-polls` to handle the business logic for you.
 
 ## Install
 
