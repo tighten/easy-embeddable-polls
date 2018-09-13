@@ -19,8 +19,14 @@
           />
           <label :for="key">{{ choice }}</label>
         </div>
-        <div v-if="allowCustomAnswer" class="custom-answer">
-          <label for="custom_answer">{{ customAnswerLabel }}</label>
+        <div v-if="allowCustomAnswer" class="choice custom-answer-choice">
+          <input
+            :type="inputType"
+            id="custom_answer_choice"
+            v-bind="choiceAttrs"
+            v-on="choiceEvents"
+          />
+          <label for="custom_answer_choice">{{ customAnswerLabel }}</label>
           <input
             name="custom_answer"
             v-bind="customAnswerAttrs"
