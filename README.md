@@ -109,3 +109,7 @@ Renderless components work by sending slot props up to their wrapper components.
 | submitted | A boolean denoating whether or not the form has been successfully submitted. |
 | thankYouMessage | A message that will be displayed after a user submits your poll. Equal to value of `thankYouMessage` prop. |
 
+## License
+
+[MIT](https://github.com/tightenco/easy-static-polls/blob/master/LICENSE.md)
+
