@@ -63,9 +63,11 @@ Here's an [example on JSBin]().
 
 ## Usage
 
-`easy-static-polls` offers a handful of props to give you the ability to customize your poll. They are outlined below:
+### Poll
 
-### Props
+The basic `Poll` component offers a handful of props that allow you to customize your poll. These props are outlined below:
+
+#### Props
 
 | Name | Type | Default value | Description |
 | :--- | :--- | :--- | :--- |
