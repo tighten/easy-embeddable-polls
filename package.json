@@ -1,12 +1,11 @@
 {
-  "name": "easy-static-polls",
-  "version": "0.1.0",
-  "private": true,
-  "main": "./dist/easyStaticPolls.umd.min.js",
+  "name": "@imjohnbon/polls-test",
+  "version": "0.9.0",
+  "main": "./dist/imjohnbonPolls.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build-lib": "vue-cli-service build --target lib --name easyStaticPolls",
+    "build-lib": "vue-cli-service build --target lib --name imjohnbonPolls ./src/components/index.js",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
   },

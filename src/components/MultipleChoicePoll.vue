@@ -7,6 +7,7 @@
 import SingleChoicePoll from './SingleChoicePoll.vue';
 
 export default {
+    name: 'multiple-choice-poll',
     components: {
         SingleChoicePoll,
     },
