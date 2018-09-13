@@ -99,7 +99,7 @@ Renderless components work by sending slot props up to their wrapper components.
 | buttonEvents | Events related to the submit poll button. Should be applied via `v-on` to your `<button>` element. |
 | buttonText | Text that will appear in the submit button. Equal to value of `buttonText` prop. |
 | choices | The options users can choose in your poll. Equal to value of `choices` prop. |
-| choiceAttrs | Attributes related to the poll choices. Should be applied via `v-on` to your choice `<input>` elements. |
+| choiceAttrs | Attributes related to the poll choices. Should be applied via `v-bind` to your choice `<input>` elements. |
 | choiceEvents | Events related to the poll choices. Should be applied via `v-on` to your choice `<input>` elements. |
 | customAnswerAttrs | Attributes related to the custom answer text input. Should be applied via `v-bind` to your custom answer `<input>` element. |
 | customAnswerEvents | Events related to the custom answer text input. Should be applied via `v-on` to your custom answer `<input>` element. |
