@@ -59,7 +59,7 @@ Now you can use the components in your markup:
 <poll :choices="{ 'banana': 'Banana', 'apple': 'Apple' }"></poll>
 ```
 
-Here's an [example on JSBin]().
+Here's an [example on JSBin](https://jsbin.com/zohebew/edit?html,js,output).
 
 ## Usage
 
@@ -101,8 +101,10 @@ Renderless components work by sending slot props up to their wrapper components.
 | choices | The options users can choose in your poll. Equal to value of `choices` prop. |
 | choiceAttrs | Attributes related to the poll choices. Should be applied via `v-bind` to your choice `<input>` elements. |
 | choiceEvents | Events related to the poll choices. Should be applied via `v-on` to your choice `<input>` elements. |
-| customAnswerAttrs | Attributes related to the custom answer text input. Should be applied via `v-bind` to your custom answer `<input>` element. |
-| customAnswerEvents | Events related to the custom answer text input. Should be applied via `v-on` to your custom answer `<input>` element. |
+| customAnswerChoiceAttrs | Attributes related to the custom answer choice input. Should be applied via `v-bind` to your custom answer choice `<input>` element. |
+| customAnswerChoiceEvents | Events related to the custom answer choice input. Should be applied via `v-on` to your custom answer choice `<input>` element. |
+| customAnswerInputAttrs | Attributes related to the custom answer text input. Should be applied via `v-bind` to your custom answer `<input>` element. |
+| customAnswerInputEvents | Events related to the custom answer text input. Should be applied via `v-on` to your custom answer `<input>` element. |
 | customAnswerLabel | The label that will appear for the custom answer option. Equal to value of `customAnswerLabel` prop. |
 | endpoint | The endpoint your poll will submit to. Equal to value of `endpoint` prop or FieldGoal URL if `fieldGoalFormKey` is present. |
 | inputType | Equal to "radio" if `multipleChoice` prop is false or "checkbox" if `multipleChoice` is true. |

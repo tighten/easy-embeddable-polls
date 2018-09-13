@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <poll field-goal-form-key="tGhtN" :allow-custom-answer="true" :choices="{ 'one': 'anotha one', 'two': 'anotha two' }">
+    <poll :multiple-choice="true" field-goal-form-key="tGhtN" :allow-custom-answer="true" :choices="{ 'one': 'anotha one', 'two': 'anotha two' }">
     </poll>
   </div>
 </template>

@@ -7,6 +7,7 @@ export default {
     return {
       answer: [],
       customAnswer: null,
+      customAnswerChoiceSelected: false,
       submitted: false,
     };
   },
@@ -102,10 +103,12 @@ export default {
       choices: this.choices,
       choiceAttrs: {
         value: this.answer,
-        name: 'choices[]'
+        name: 'choices[]',
+        type: this.inputType,
       },
       choiceEvents: {
         input: (e) => {
+          this.customAnswerChoiceSelected = false;
           const value = e.target.value;
 
           if (this.multipleChoice) {
@@ -119,10 +122,23 @@ export default {
           }
         },
       },
-      customAnswerAttrs: {
+      customAnswerChoiceAttrs: {
+        name: 'choices[]',
+        type: this.inputType,
+      },
+      customAnswerChoiceEvents: {
+        input: (e) => {
+          this.customAnswerChoiceSelected = true;
+
+          if (! this.multipleChoice) {
+            this.answer = [];
+          }
+        },
+      },
+      customAnswerInputAttrs: {
         value: this.customAnswer,
       },
-      customAnswerEvents: {
+      customAnswerInputEvents: {
         input: (e) => {
           this.customAnswer = e.target.value;
         },
@@ -136,11 +152,15 @@ export default {
   },
   methods: {
     submit() {
+      if (this.customAnswerChoiceSelected) {
+        this.answer.push(this.customAnswer);
+      }
+
       return axios({
+        method: 'POST',
         url:  this.fieldGoalEndpoint || this.endpoint,
         data: {
           answer: this.formattedAnswer,
-          customAnswer: this.customAnswer,
         },
         ...this.requestConfig,
       });
