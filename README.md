@@ -48,7 +48,7 @@ Vue.component('renderless-poll', easyStaticPolls.RenderlessPoll);
 Now you can use the components in your markup:
 
 ```html
-<poll :choices="{ 'banana': 'Banana', 'apple': 'Apple' }"></poll >
+<poll :choices="{ 'banana': 'Banana', 'apple': 'Apple' }"></poll>
 ```
 
 Here's an [example on JSBin]().
@@ -63,7 +63,7 @@ Here's an [example on JSBin]().
 | allowCustomAnswer | Boolean | false | Gives users the option to enter a custom answer via a text field. |
 | buttonText | String | "Submit Answer" | Text that will appear in the submit button. |
 | choices | Object | `{}` | The options users can choose in the poll. Should be formatted as a key value object. Example: `{ 'favorite_fruit': 'Favorite Fruit' }` |
-| customAnswerLabel | Object | "Other" | The label that will appear for the custom answer option. |
+| customAnswerLabel | String | "Other" | The label that will appear for the custom answer option. |
 | endpoint | String | undefined | A URL where the poll will be submitted to. |
 | fieldGoalFormKey | String | undefined| Form key for a [FieldGoal](https://fieldgoal.io) form. If used, the `endpoint` prop will be overwritten with a FieldGoal endpoint.|
 | multipleChoice | Boolean | false | Determines whether or not a user should be able to choose multiple options. |
