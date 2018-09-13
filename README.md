@@ -59,15 +59,15 @@ Here's an [example on JSBin]().
 
 | Name | Type | Default Value | Description |
 | :--- | :--- | :--- | :--- |
-| afterSubmitHook | Function | Empty function | A function that is run after the poll has been successfully submitted. |
+| afterSubmitHook | Function | Empty function | A callback that is run after the poll has been successfully submitted. Receives a response object as a parameter. |
 | allowCustomAnswer | Boolean | false | Gives users the option to enter a custom answer via a text field. |
-| buttonText | String | 'Submit Answer' | Text that will appear in the submit button. |
+| buttonText | String | "Submit Answer" | Text that will appear in the submit button. |
 | choices | Object | `{}` | The options users can choose in the poll. Should be formatted as a key value object. Example: `{ 'favorite_fruit': 'Favorite Fruit' }` |
-| customAnswerLabel | Object | 'Other' | The label that will appear for the custom answer option. |
+| customAnswerLabel | Object | "Other" | The label that will appear for the custom answer option. |
 | endpoint | String | undefined | A URL where the poll will be submitted to. |
 | fieldGoalFormKey | String | undefined| Form key for a [FieldGoal](https://fieldgoal.io) form. If used, the `endpoint` prop will be overwritten with a FieldGoal endpoint.|
 | multipleChoice | Boolean | false | Determines whether or not a user should be able to choose multiple options. |
-| onSubmitErrorHook | Function | Empty function | A function that is run when a poll encounters an error when submitted. Receives an error object as a parameter. |
+| onSubmitErrorHook | Function | Empty function | A callback that is run when a poll encounters an error when submitted. Receives an error object as a parameter. |
 | requestConfig | Object |  `{}`  | An [axios](https://github.com/axios/axios) configuration object that will be used on the poll submission request. |
-| thankYouMessage | String | 'Your answer has been submitted.' | A message that will be displayed after the user submits the poll. |
+| thankYouMessage | String | "Your answer has been submitted." | A message that will be displayed after the user submits the poll. |
 
