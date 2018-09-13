@@ -42,7 +42,7 @@
 import RenderlessPoll from './RenderlessPoll.vue';
 
 export default {
-  name: 'single-choice-poll',
+  name: 'poll',
   components: {
     RenderlessPoll,
   },

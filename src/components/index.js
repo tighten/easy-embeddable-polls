@@ -1,7 +1,5 @@
-import MultipleChoicePollComponent from './MultipleChoicePoll.vue';
+import PollComponent from './Poll.vue';
 import RenderlessPollComponent from './RenderlessPoll.vue';
-import SingleChoicePollComponent from './SingleChoicePoll.vue';
 
-export const MultipleChoicePoll = MultipleChoicePollComponent;
+export const Poll = PollComponent;
 export const RenderlessPoll = RenderlessPollComponent;
-export const SingleChoicePoll = SingleChoicePollComponent;
