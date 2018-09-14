@@ -2,13 +2,13 @@
   <poll :allow-custom-answer="true"
     button-text="Submit My Bread Choice"
     :choices="{ 'banana_bread': 'Banana Bread', 'wheat_bread': 'Wheat Bread', 'sourdough_bread': 'Sourdough Bread' }"
-    customAnswerLabel="Other Bread"
+    custom-answer-label="Other Bread"
     endpoint="https://jsonplaceholder.typicode.com/posts"
     :multiple-choice="false"
     thank-you-message="Thanks for your opinion on bread!"
     title="What's your favorite bread?"
-    :submitErrorHook="onError"
-    :submitSuccessHook="onSuccess"
+    :submit-error-hook="onError"
+    :submit-success-hook="onSuccess"
   >
   </poll>
 </template>
