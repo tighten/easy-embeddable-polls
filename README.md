@@ -89,8 +89,10 @@ A `RenderlessPoll` component is offered in addition to the `Poll` component for 
 The `RenderlessPoll` component follows the [renderless component pattern](https://adamwathan.me/renderless-components-in-vuejs/).
 We will not dive into the concept of renderless components in this documentation, instead recommending you read the previously linked article to familiarize yourself.
 
+Below is an example of an implementation of the `RenderlessPoll` component, including all slot props:
+
 ```js
-<renderless-poll endpoint="http://www.example.com" :choices="{}">
+<renderless-poll endpoint="http://www.example.com" :choices="{'banana_bread': 'Banana Bread', 'wheat_bread': 'Wheat Bread', 'sourdough_bread': 'Sourdough Bread'}">
   <div slot-scope="{ allowCustomAnswer, buttonEvents, buttonText, choices, choiceAttrs, choiceEvents, customAnswerChoiceAttrs, customAnswerChoiceEvents, customAnswerChoiceSelected, customAnswerInputAttrs, customAnswerInputEvents, customAnswerLabel, inputType, submitted, thankYouMessage }">
     <div v-if="submitted">
       {{ thankYouMessage }}
