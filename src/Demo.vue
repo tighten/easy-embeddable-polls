@@ -5,10 +5,11 @@
     custom-answer-label="Other Bread"
     endpoint="https://jsonplaceholder.typicode.com/posts"
     :multiple-choice="false"
-    thank-you-message="Thanks for your opinion on bread!"
-    title="What's your favorite bread?"
+    :request-config="{ 'X-Custom-Header': 'foobar' }"
     :submit-error-hook="onError"
     :submit-success-hook="onSuccess"
+    thank-you-message="Thanks for your opinion on bread!"
+    title="What's your favorite bread?"
   >
   </poll>
 </template>
