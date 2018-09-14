@@ -1,28 +1,28 @@
-# easy-static-polls
+# easy-embeddable-polls
 
 ## Overview
 
-`easy-static-polls` provides you with Vue components for easily embedding polls into your website. Two components are offered out of the box:
+`easy-embeddable-polls` provides you with Vue components for easily embedding polls into your website. Two components are offered out of the box:
 
 - A basic `Poll` configurable by use of props. Outputs simple markup with semantic class names.
 - A `RenderlessPoll` which follows the [renderless component pattern](https://adamwathan.me/renderless-components-in-vuejs/).
-This option gives you complete control over the markup of the poll while still allowing `easy-static-polls` to handle the business logic for you.
+This option gives you complete control over the markup of the poll while still allowing `easy-embeddable-polls` to handle the business logic for you.
 
 ## Install
 
 #### NPM
 
-First, install `easy-static-polls` via your preferred package manager:
+First, install `easy-embeddable-polls` via your preferred package manager:
 
 ```bash
-$ npm install easy-static-polls --save
+$ npm install easy-embeddable-polls --save
 ```
 
 Then register any relevant components in your JavaScript:
 
 ```js
 import Vue from 'vue'
-import { Poll, RenderlessPoll } from 'easy-static-polls'
+import { Poll, RenderlessPoll } from 'easy-embeddable-polls'
 
 Vue.component('poll', Poll)
 Vue.component('renderless-poll', RenderlessPoll)
@@ -36,21 +36,21 @@ Now you can use the components in your markup:
 
 #### CDN
 
-Simply include `vue` & `easy-static-polls.js` - we recommend using [unpkg](https://unpkg.com/#/).
+Simply include `vue` & `easy-embeddable-polls.js` - we recommend using [unpkg](https://unpkg.com/#/).
 
 ```html
 <script src="https://unpkg.com/vue@latest"></script>
 <!-- use the latest release -->
-<script src="https://unpkg.com/easy-static-polls@latest"></script>
+<script src="https://unpkg.com/easy-embeddable-polls@latest"></script>
 <!-- or point to a specific release -->
-<script src="https://unpkg.com/easy-static-polls@1.0.0"></script>
+<script src="https://unpkg.com/easy-embeddable-polls@1.0.0"></script>
 ```
 
 Then register any relevant components in your JavaScript:
 
 ```js
-Vue.component('poll', easyStaticPolls.Poll);
-Vue.component('renderless-poll', easyStaticPolls.RenderlessPoll);
+Vue.component('poll', easyEmbeddablePolls.Poll);
+Vue.component('renderless-poll', easyEmbeddablePolls.RenderlessPoll);
 ```
 
 Now you can use the components in your markup:
@@ -74,7 +74,7 @@ The basic `Poll` component offers a handful of props that allow you to customize
 | afterSubmitHook | Function | Empty function | A callback that is run after your poll has been successfully submitted. Receives a response object as a parameter. |
 | allowCustomAnswer | Boolean | false | Gives users the option to enter a custom answer via a text field. |
 | buttonText | String | "Submit Answer" | Text that will appear in the submit button. |
-| choices | Object | `{}` | The answers users can choose in your poll. Should be formatted as a key value object. Example: `{ 'favorite_fruit': 'Favorite Fruit' }` |
+| choices | Object | `{}` | The answers users can choose in your poll. Should be formatted as a key value object. Example: `{ 'banana_bread': 'Banana Bread' }` |
 | customAnswerLabel | String | "Other" | The label that will appear for the custom answer option. |
 | endpoint | String | undefined | A URL where your poll answers will be submitted to. |
 | fieldGoalFormKey | String | undefined| Form key for a [FieldGoal](https://fieldgoal.io) form. If used, a FieldGoal URL will be automatically used as the endpoint.|
@@ -135,5 +135,5 @@ We will not dive into the concept of renderless components in this documentation
 
 ## License
 
-[MIT](https://github.com/tightenco/easy-static-polls/blob/master/LICENSE.md)
+[MIT](https://github.com/tightenco/easy-embeddable-polls/blob/master/LICENSE.md)
 

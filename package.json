@@ -1,11 +1,11 @@
 {
-  "name": "@imjohnbon/polls-test",
-  "version": "0.10.0",
-  "main": "./dist/imjohnbonPolls.umd.min.js",
+  "name": "easy-embeddable-polls",
+  "version": "0.1.0",
+  "main": "./dist/easyEmbeddablePolls.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build-lib": "vue-cli-service build --target lib --name imjohnbonPolls ./src/components/index.js",
+    "build-lib": "vue-cli-service build --target lib --name easyEmbeddablePolls ./src/components/index.js",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
   },
