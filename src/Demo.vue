@@ -4,8 +4,9 @@
     :choices="{ 'banana_bread': 'Banana Bread', 'wheat_bread': 'Wheat Bread', 'sourdough_bread': 'Sourdough Bread' }"
     custom-answer-label="Other Bread"
     endpoint="https://jsonplaceholder.typicode.com/posts"
-    :multiple-choice="false"
-    :request-config="{ 'X-Custom-Header': 'foobar' }"
+    error-message="There was a problem submitting your favorite bread."
+    :multiple-choice="true"
+    :request-config="{ 'X-Requested-With': 'XMLHttpRequest' }"
     :submit-error-hook="onError"
     :submit-success-hook="onSuccess"
     thank-you-message="Thanks for your opinion on bread!"
@@ -81,6 +82,12 @@ body {
   padding: 10px 20px;
   font-weight: bold;
   text-transform: uppercase;
+}
+
+.easy-embeddable-poll-error {
+  background: #fff;
+  padding: 20px;
+  text-align: center;
 }
 
 .easy-embeddable-poll-thank-you {

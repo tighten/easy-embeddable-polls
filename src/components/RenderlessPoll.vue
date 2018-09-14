@@ -8,6 +8,7 @@ export default {
       answer: [],
       customAnswer: null,
       customAnswerChoiceSelected: false,
+      error: false,
       submitted: false,
     };
   },
@@ -33,6 +34,10 @@ export default {
     endpoint: {
       type: String,
       default: undefined,
+    },
+    errorMessage: {
+      type: String,
+      default: 'There was an error submitting your answer.',
     },
     fieldGoalFormKey: {
       type: String,
@@ -100,7 +105,10 @@ export default {
           this.submit()
             .then(() => this.submitted = true)
             .then(response => this.submitSuccessHook(response))
-            .catch(error => this.submitErrorHook(error));
+            .catch(error => {
+              this.error = true;
+              this.submitErrorHook(error);
+            });
         },
       },
       buttonText: this.buttonText,
@@ -150,6 +158,8 @@ export default {
       },
       customAnswerLabel: this.customAnswerLabel,
       endpoint: this.fieldGoalEndpoint || this.endpoint,
+      error: this.error,
+      errorMessage: this.errorMessage,
       inputType: this.inputType,
       submitted: this.submitted,
       thankYouMessage: this.thankYouMessage,

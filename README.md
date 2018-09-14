@@ -76,6 +76,7 @@ The basic `Poll` component offers a handful of props that allow you to customize
 | choices | Object | `{}` | The answers users can choose in your poll. Should be formatted as a key value object. Example: `{ 'banana_bread': 'Banana Bread' }` |
 | customAnswerLabel | String | "Other" | The label that will appear for the custom answer option. |
 | endpoint | String | undefined | A URL where your poll answers will be submitted to. |
+| errorMessage | String | "There was an error submitting your answer." | A message that will be displayed if there is an error submitting your poll. |
 | fieldGoalFormKey | String | undefined| Form key for a [FieldGoal](https://fieldgoal.io) form. If used, a FieldGoal URL will be automatically used as the endpoint.|
 | multipleChoice | Boolean | false | Determines whether or not a user can choose choose multiple answers. |
 | requestConfig | Object |  `{}`  | An [axios](https://github.com/axios/axios) configuration object that will be used on your poll submission request. |
@@ -96,8 +97,11 @@ Below is an example of an implementation of the `RenderlessPoll` component, incl
 
 ```js
 <renderless-poll endpoint="http://www.example.com" :choices="{'banana_bread': 'Banana Bread', 'wheat_bread': 'Wheat Bread', 'sourdough_bread': 'Sourdough Bread'}">
-  <div slot-scope="{ allowCustomAnswer, buttonEvents, buttonText, choices, choiceAttrs, choiceEvents, customAnswerChoiceAttrs, customAnswerChoiceEvents, customAnswerChoiceSelected, customAnswerInputAttrs, customAnswerInputEvents, customAnswerLabel, inputType, submitted, thankYouMessage, title }">
-    <div v-if="submitted">
+  <div slot-scope="{ allowCustomAnswer, buttonEvents, buttonText, choices, choiceAttrs, choiceEvents, customAnswerChoiceAttrs, customAnswerChoiceEvents, customAnswerChoiceSelected, customAnswerInputAttrs, customAnswerInputEvents, customAnswerLabel, error, errorMessage, inputType, submitted, thankYouMessage, title }">
+    <div v-if="error">
+      {{ errorMessage }}
+    </div>
+    <div v-else-if="submitted">
       {{ thankYouMessage }}
     </div>
     <div v-else>
