@@ -82,6 +82,7 @@ The basic `Poll` component offers a handful of props that allow you to customize
 | submitErrorHook | Function | Empty function | A callback that is run when an error is encountered after a poll is submitted. Receives an error object as a parameter. |
 | submitSuccessHook | Function | Empty function | A callback that is run after your poll has been successfully submitted. Receives a response object as a parameter. |
 | thankYouMessage | String | "Your answer has been submitted." | A message that will be displayed after a user submits the your. |
+| title | String | undefined | A title that will appear at the top of your poll. |
 
 ### RenderlessPoll
 
@@ -93,11 +94,14 @@ Below is an example of an implementation of the `RenderlessPoll` component, incl
 
 ```js
 <renderless-poll endpoint="http://www.example.com" :choices="{'banana_bread': 'Banana Bread', 'wheat_bread': 'Wheat Bread', 'sourdough_bread': 'Sourdough Bread'}">
-  <div slot-scope="{ allowCustomAnswer, buttonEvents, buttonText, choices, choiceAttrs, choiceEvents, customAnswerChoiceAttrs, customAnswerChoiceEvents, customAnswerChoiceSelected, customAnswerInputAttrs, customAnswerInputEvents, customAnswerLabel, inputType, submitted, thankYouMessage }">
+  <div slot-scope="{ allowCustomAnswer, buttonEvents, buttonText, choices, choiceAttrs, choiceEvents, customAnswerChoiceAttrs, customAnswerChoiceEvents, customAnswerChoiceSelected, customAnswerInputAttrs, customAnswerInputEvents, customAnswerLabel, inputType, submitted, thankYouMessage, title }">
     <div v-if="submitted">
       {{ thankYouMessage }}
     </div>
     <div v-else>
+      <span v-if="title">
+        {{ title }}
+      </span>
       <div
         v-for="(choice, key) in choices"
         :key="key"

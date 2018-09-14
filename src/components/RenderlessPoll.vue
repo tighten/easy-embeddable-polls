@@ -52,7 +52,7 @@ export default {
       type: Function,
       default() {
         return () => {};
-      }
+      },
     },
     requestConfig: {
       type: Object,
@@ -63,6 +63,10 @@ export default {
     thankYouMessage: {
       type: String,
       default: 'Your answer has been submitted.',
+    },
+    title: {
+      type: String,
+      default: undefined,
     },
   },
   computed: {
@@ -140,7 +144,7 @@ export default {
         value: this.customAnswer,
       },
       customAnswerInputEvents: {
-        input: () => {
+        input: (e) => {
           this.customAnswer = e.target.value;
         },
       },
@@ -149,6 +153,7 @@ export default {
       inputType: this.inputType,
       submitted: this.submitted,
       thankYouMessage: this.thankYouMessage,
+      title: this.title,
     });
   },
   methods: {

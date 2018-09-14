@@ -15,6 +15,7 @@ describe('RenderlessPoll.vue', () => {
     expect(wrapper.vm.multipleChoice).toEqual(false);
     expect(wrapper.vm.requestConfig).toEqual({});
     expect(wrapper.vm.thankYouMessage).toEqual('Your answer has been submitted.');
+    expect(wrapper.vm.title).toEqual(undefined);
   });
 
   it('returns a null field goal endpoint if the field goal form key was not passed in', () => {

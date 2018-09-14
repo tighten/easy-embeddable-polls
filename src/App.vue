@@ -1,19 +1,16 @@
 <template>
   <div id="app">
-    <poll :multiple-choice="false" field-goal-form-key="tGhtN" :allow-custom-answer="true" :choices="{ 'one': 'anotha one', 'two': 'anotha two' }">
-    </poll>
+    <demo></demo>
   </div>
 </template>
 
 <script>
-import Poll from './components/Poll.vue';
-import RenderlessPoll from './components/RenderlessPoll.vue';
+import Demo from './Demo.vue';
 
 export default {
   name: 'app',
   components: {
-    Poll,
-    RenderlessPoll,
+    Demo,
   },
 };
 </script>
