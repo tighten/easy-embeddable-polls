@@ -90,47 +90,47 @@ The `RenderlessPoll` component follows the [renderless component pattern](https:
 We will not dive into the concept of renderless components in this documentation, instead recommending you read the previously linked article to familiarize yourself.
 
 ```js
-  <renderless-poll endpoint="http://www.example.com" :choices="{}">
-    <div slot-scope="{ allowCustomAnswer, buttonEvents, buttonText, choices, choiceAttrs, choiceEvents, customAnswerChoiceAttrs, customAnswerChoiceEvents, customAnswerChoiceSelected, customAnswerInputAttrs, customAnswerInputEvents, customAnswerLabel, inputType, submitted, thankYouMessage }">
-      <div v-if="submitted">
-        {{ thankYouMessage }}
-      </div>
-      <div v-else>
-        <div
-          v-for="(choice, key) in choices"
-          :key="key"
-        >
-          <input
-            :id="key"
-            :value="key"
-            v-bind="choiceAttrs"
-            v-on="choiceEvents"
-          />
-          <label :for="key">{{ choice }}</label>
-        </div>
-        <div v-if="allowCustomAnswer">
-          <input
-            id="custom_answer_choice"
-            v-bind="customAnswerChoiceAttrs"
-            v-on="customAnswerChoiceEvents"
-          />
-          <label for="custom_answer_choice">{{ customAnswerLabel }}</label>
-          <input
-            type="text"
-            v-if="customAnswerChoiceSelected"
-            v-bind="customAnswerInputAttrs"
-            v-on="customAnswerInputEvents"
-          />
-        </div>
-        <button
-          type="submit"
-          v-on="buttonEvents"
-        >
-          {{ buttonText }}
-        </button>
-      </div>
+<renderless-poll endpoint="http://www.example.com" :choices="{}">
+  <div slot-scope="{ allowCustomAnswer, buttonEvents, buttonText, choices, choiceAttrs, choiceEvents, customAnswerChoiceAttrs, customAnswerChoiceEvents, customAnswerChoiceSelected, customAnswerInputAttrs, customAnswerInputEvents, customAnswerLabel, inputType, submitted, thankYouMessage }">
+    <div v-if="submitted">
+      {{ thankYouMessage }}
     </div>
-  </renderless-poll>
+    <div v-else>
+      <div
+        v-for="(choice, key) in choices"
+        :key="key"
+      >
+        <input
+          :id="key"
+          :value="key"
+          v-bind="choiceAttrs"
+          v-on="choiceEvents"
+        />
+        <label :for="key">{{ choice }}</label>
+      </div>
+      <div v-if="allowCustomAnswer">
+        <input
+          id="custom_answer_choice"
+          v-bind="customAnswerChoiceAttrs"
+          v-on="customAnswerChoiceEvents"
+        />
+        <label for="custom_answer_choice">{{ customAnswerLabel }}</label>
+        <input
+          type="text"
+          v-if="customAnswerChoiceSelected"
+          v-bind="customAnswerInputAttrs"
+          v-on="customAnswerInputEvents"
+        />
+      </div>
+      <button
+        type="submit"
+        v-on="buttonEvents"
+      >
+        {{ buttonText }}
+      </button>
+    </div>
+  </div>
+</renderless-poll>
 ```
 
 ## License
