@@ -81,7 +81,7 @@ The basic `Poll` component offers a handful of props that allow you to customize
 | requestConfig | Object |  `{}`  | An [axios](https://github.com/axios/axios) configuration object that will be used on your poll submission request. |
 | submitErrorHook | Function | Empty function | A callback that is run when an error is encountered after a poll is submitted. Receives an error object as a parameter. |
 | submitSuccessHook | Function | Empty function | A callback that is run after your poll has been successfully submitted. Receives a response object as a parameter. |
-| thankYouMessage | String | "Your answer has been submitted." | A message that will be displayed after a user submits the your. |
+| thankYouMessage | String | "Your answer has been submitted." | A message that will be displayed after a user submits your poll. |
 | title | String | undefined | A title that will appear at the top of your poll. |
 
 ### RenderlessPoll
