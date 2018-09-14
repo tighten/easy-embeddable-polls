@@ -1,12 +1,12 @@
 <template>
   <renderless-poll v-bind="$attrs">
     <div slot-scope="{ allowCustomAnswer, buttonEvents, buttonText, choices, choiceAttrs, choiceEvents, customAnswerChoiceAttrs, customAnswerChoiceEvents, customAnswerChoiceSelected, customAnswerInputAttrs, customAnswerInputEvents, customAnswerLabel, inputType, submitted, thankYouMessage }">
-      <div v-if="submitted" class="thank-you">
+      <div v-if="submitted" class="easy-embeddable-poll-thank-you">
         {{ thankYouMessage }}
       </div>
-      <div v-else class="choices">
+      <div v-else class="easy-embeddable-poll-choices">
         <div
-          class="choice"
+          class="easy-embeddable-poll-choice"
           v-for="(choice, key) in choices"
           :key="key"
         >
@@ -18,7 +18,7 @@
           />
           <label :for="key">{{ choice }}</label>
         </div>
-        <div v-if="allowCustomAnswer" class="choice custom-answer-choice">
+        <div v-if="allowCustomAnswer" class="easy-embeddable-poll-choice easy-embeddable-poll-custom-answer-choice">
           <input
             id="custom_answer_choice"
             v-bind="customAnswerChoiceAttrs"
@@ -26,10 +26,10 @@
           />
           <label for="custom_answer_choice">{{ customAnswerLabel }}</label>
           <input
+            type="text"
             v-if="customAnswerChoiceSelected"
             v-bind="customAnswerInputAttrs"
             v-on="customAnswerInputEvents"
-            type="text"
           />
         </div>
         <button
