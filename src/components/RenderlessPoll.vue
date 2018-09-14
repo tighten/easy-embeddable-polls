@@ -12,12 +12,6 @@ export default {
     };
   },
   props: {
-    afterSubmitHook: {
-      type: Function,
-      default() {
-        return () => {};
-      }
-    },
     allowCustomAnswer: {
       type: Boolean,
       default: false,
@@ -29,8 +23,8 @@ export default {
     choices: {
       type: Object,
       default() {
-        return {}
-      }
+        return {};
+      },
     },
     customAnswerLabel: {
       type: String,
@@ -48,7 +42,13 @@ export default {
       type: Boolean,
       default: false,
     },
-    onSubmitErrorHook: {
+    submitErrorHook: {
+      type: Function,
+      default() {
+        return () => {};
+      },
+    },
+    submitSuccessHook: {
       type: Function,
       default() {
         return () => {};
@@ -57,13 +57,13 @@ export default {
     requestConfig: {
       type: Object,
       default() {
-        return {}
-      }
+        return {};
+      },
     },
     thankYouMessage: {
       type: String,
       default: 'Your answer has been submitted.',
-    }, 
+    },
   },
   computed: {
     fieldGoalEndpoint() {
@@ -92,11 +92,11 @@ export default {
     return this.$scopedSlots.default({
       allowCustomAnswer: this.allowCustomAnswer,
       buttonEvents: {
-        click: (e) => {
+        click: () => {
           this.submit()
             .then(() => this.submitted = true)
-            .then((response) => this.afterSubmitHook(response))
-            .catch((error) => this.onSubmitErrorHook(error));
+            .then(response => this.submitSuccessHook(response))
+            .catch(error => this.submitErrorHook(error));
         },
       },
       buttonText: this.buttonText,
@@ -127,10 +127,10 @@ export default {
         type: this.inputType,
       },
       customAnswerChoiceEvents: {
-        input: (e) => {
-          this.customAnswerChoiceSelected = ! this.customAnswerChoiceSelected;
+        input: () => {
+          this.customAnswerChoiceSelected = !this.customAnswerChoiceSelected;
 
-          if (! this.multipleChoice) {
+          if (!this.multipleChoice) {
             this.answer = [];
           }
         },
@@ -140,7 +140,7 @@ export default {
         value: this.customAnswer,
       },
       customAnswerInputEvents: {
-        input: (e) => {
+        input: () => {
           this.customAnswer = e.target.value;
         },
       },
@@ -159,7 +159,7 @@ export default {
 
       return axios({
         method: 'POST',
-        url:  this.fieldGoalEndpoint || this.endpoint,
+        url: this.fieldGoalEndpoint || this.endpoint,
         data: {
           answer: this.formattedAnswer,
         },
@@ -167,5 +167,5 @@ export default {
       });
     },
   },
-}
+};
 </script>

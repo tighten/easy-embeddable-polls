@@ -71,7 +71,6 @@ The basic `Poll` component offers a handful of props that allow you to customize
 
 | Name | Type | Default value | Description |
 | :--- | :--- | :--- | :--- |
-| afterSubmitHook | Function | Empty function | A callback that is run after your poll has been successfully submitted. Receives a response object as a parameter. |
 | allowCustomAnswer | Boolean | false | Gives users the option to enter a custom answer via a text field. |
 | buttonText | String | "Submit Answer" | Text that will appear in the submit button. |
 | choices | Object | `{}` | The answers users can choose in your poll. Should be formatted as a key value object. Example: `{ 'banana_bread': 'Banana Bread' }` |
@@ -79,8 +78,9 @@ The basic `Poll` component offers a handful of props that allow you to customize
 | endpoint | String | undefined | A URL where your poll answers will be submitted to. |
 | fieldGoalFormKey | String | undefined| Form key for a [FieldGoal](https://fieldgoal.io) form. If used, a FieldGoal URL will be automatically used as the endpoint.|
 | multipleChoice | Boolean | false | Determines whether or not a user can choose choose multiple answers. |
-| onSubmitErrorHook | Function | Empty function | A callback that is run when an error is encountered after a poll is submitted. Receives an error object as a parameter. |
 | requestConfig | Object |  `{}`  | An [axios](https://github.com/axios/axios) configuration object that will be used on your poll submission request. |
+| submitErrorHook | Function | Empty function | A callback that is run when an error is encountered after a poll is submitted. Receives an error object as a parameter. |
+| submitSuccessHook | Function | Empty function | A callback that is run after your poll has been successfully submitted. Receives a response object as a parameter. |
 | thankYouMessage | String | "Your answer has been submitted." | A message that will be displayed after a user submits the your. |
 
 ### RenderlessPoll
