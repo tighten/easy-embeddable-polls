@@ -84,7 +84,7 @@ The basic `Poll` component offers a handful of props that allow you to customize
 | thankYouMessage | String | "Your answer has been submitted." | A message that will be displayed after a user submits your poll. |
 | title | String | undefined | A title that will appear at the top of your poll. |
 
-An implementation of the `Poll` component can be seen on in [the demo](https://github.com/tightenco/easy-embeddable-polls/blob/master/src/Demo.vue).
+An implementation of the `Poll` component can be seen in [the demo](https://github.com/tightenco/easy-embeddable-polls/blob/master/src/Demo.vue).
 
 ### RenderlessPoll
 
@@ -92,7 +92,7 @@ A `RenderlessPoll` component is offered in addition to the `Poll` component for 
 The `RenderlessPoll` component follows the [renderless component pattern](https://adamwathan.me/renderless-components-in-vuejs/).
 We will not dive into the concept of renderless components in this documentation, instead recommending you read the previously linked article to familiarize yourself.
 
-Below is an example of an implementation of the `RenderlessPoll` component, including all slot props. It should be noted as well that the [`Poll` component](https://github.com/tightenco/easy-embeddable-polls/blob/master/src/components/Poll.vue) is an implementation of the `RenderlessPoll` component itself.
+Below is an example of an implementation of the `RenderlessPoll` component, including all slot props. It should be noted as well that the [`Poll` component](https://github.com/tightenco/easy-embeddable-polls/blob/master/src/components/Poll.vue) itself is an implementation of the `RenderlessPoll` component.
 
 ```js
 <renderless-poll endpoint="http://www.example.com" :choices="{'banana_bread': 'Banana Bread', 'wheat_bread': 'Wheat Bread', 'sourdough_bread': 'Sourdough Bread'}">
