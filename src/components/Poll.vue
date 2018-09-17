@@ -10,16 +10,16 @@
         <div class="easy-embeddable-poll-choices">
           <div
             class="easy-embeddable-poll-choice"
-            v-for="(choice, key) in choices"
-            :key="key"
+            v-for="choice in choices"
+            :key="choice"
           >
             <input
-              :id="key"
-              :value="key"
+              :id="choice"
+              :value="choice"
               v-bind="choiceAttrs"
               v-on="choiceEvents"
             />
-            <label :for="key">{{ choice }}</label>
+            <label :for="choice">{{ choice }}</label>
           </div>
           <div v-if="allowCustomAnswer" class="easy-embeddable-poll-choice easy-embeddable-poll-custom-answer-choice">
             <input

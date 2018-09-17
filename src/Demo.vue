@@ -1,16 +1,16 @@
 <template>
   <poll :allow-custom-answer="true"
-    button-text="Submit My Bread Choice"
-    :choices="{ 'banana_bread': 'Banana Bread', 'wheat_bread': 'Wheat Bread', 'sourdough_bread': 'Sourdough Bread' }"
-    custom-answer-label="Other Bread"
+    button-text="Submit My Candy Choice"
+    :choices="['Skittles', 'Starburst', 'Nerds']"
+    custom-answer-label="Other Candy"
     endpoint="https://jsonplaceholder.typicode.com/posts"
     error-message="There was a problem submitting your favorite bread."
-    :multiple-choice="true"
+    :multiple-choice="false"
     :request-config="{ 'X-Requested-With': 'XMLHttpRequest' }"
     :submit-error-hook="onError"
     :submit-success-hook="onSuccess"
-    thank-you-message="Thanks for your opinion on bread!"
-    title="What's your favorite bread?"
+    thank-you-message="Thanks for your opinion on rainbow candy!"
+    title="What's your favorite rainbow colored candy?"
   >
   </poll>
 </template>

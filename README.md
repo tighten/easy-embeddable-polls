@@ -31,7 +31,7 @@ Vue.component('renderless-poll', RenderlessPoll);
 Now you can use the components in your markup:
 
 ```html
-<poll :choices="{ 'banana': 'Banana', 'apple': 'Apple' }"></poll>
+<poll :choices="['Skittles', 'Starburst', 'Nerds']"></poll>
 ```
 
 #### CDN
@@ -55,7 +55,7 @@ Vue.component('renderless-poll', easyEmbeddablePolls.RenderlessPoll);
 Now you can use the components in your markup:
 
 ```html
-<poll :choices="{ 'wheat_bread': 'Wheat Bread', 'sourdough_bread': 'Sourdough Bread' }"></poll>
+<poll :choices="['Skittles', 'Starburst', 'Nerds']"></poll>
 ```
 
 Here's an [example on JSBin](https://jsbin.com/zohebew/edit?html,css,js,output).
@@ -72,7 +72,7 @@ The basic `Poll` component offers a handful of props that allow you to customize
 | :--- | :--- | :--- | :--- |
 | allowCustomAnswer | Boolean | false | Gives users the option to enter a custom answer via a text field. |
 | buttonText | String | "Submit Answer" | Text that will appear in the submit button. |
-| choices | Object | `{}` | The answers users can choose in your poll. Should be formatted as a key value object. Example: `{ 'banana_bread': 'Banana Bread' }` |
+| choices | Array | `[]` | An array of answers users can choose in your poll. |
 | customAnswerLabel | String | "Other" | The label that will appear for the custom answer option. |
 | endpoint | String | undefined | A URL where your poll answers will be submitted to. Alternatively, if your form is submitting to a [FieldGoal](https://fieldgoal.io) form, the `fieldGoalFormKey` prop can be used. |
 | errorMessage | String | "There was an error submitting your answer." | A message that will be displayed if there is an error submitting your poll. |
@@ -97,7 +97,7 @@ We will not dive into the concept of renderless components in this documentation
 Below is an example of an implementation of the `RenderlessPoll` component, including all slot props. It should be noted as well that the [`Poll` component](https://github.com/tightenco/easy-embeddable-polls/blob/master/src/components/Poll.vue) itself is an implementation of the `RenderlessPoll` component.
 
 ```js
-<renderless-poll endpoint="http://www.example.com" :choices="{'banana_bread': 'Banana Bread', 'wheat_bread': 'Wheat Bread', 'sourdough_bread': 'Sourdough Bread'}">
+<renderless-poll endpoint="http://www.example.com" :choices="['Banana Bread', 'Wheat Bread', 'Sourdough Bread']">
   <div slot-scope="{ allowCustomAnswer, buttonEvents, buttonText, choices, choiceAttrs, choiceEvents, customAnswerChoiceAttrs, customAnswerChoiceEvents, customAnswerChoiceSelected, customAnswerInputAttrs, customAnswerInputEvents, customAnswerLabel, error, errorMessage, inputType, submitted, thankYouMessage, title }">
     <div v-if="error">
       {{ errorMessage }}
@@ -110,16 +110,16 @@ Below is an example of an implementation of the `RenderlessPoll` component, incl
         {{ title }}
       </span>
       <div
-        v-for="(choice, key) in choices"
-        :key="key"
+        v-for="choice in choices"
+        :key="choice"
       >
         <input
-          :id="key"
-          :value="key"
+          :id="choice"
+          :value="choice"
           v-bind="choiceAttrs"
           v-on="choiceEvents"
         />
-        <label :for="key">{{ choice }}</label>
+        <label :for="choice">{{ choice }}</label>
       </div>
       <div v-if="allowCustomAnswer">
         <input
@@ -148,21 +148,21 @@ Below is an example of an implementation of the `RenderlessPoll` component, incl
 
 ### Request Payload
 
-Both components work by sending a simple payload with a single `answer` key to your specified endpoint.
+Both components work by sending a payload with a single `answer` key to your specified endpoint.
 The value is either a string (if the user chose a single answer) or an array (if the user chose multiple answers).
 Below are some examples:
 
 ```
 {
-  answer: 'wheat_bread'
+  answer: 'Starburst'
 }
 ```
 
 ```
 {
   answer: [
-    'wheat_bread',
-    'sourdough_bread',
+    'Skittles',
+    'Starburst',
   ]
 }
 ```

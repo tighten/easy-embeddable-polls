@@ -22,9 +22,9 @@ export default {
       default: 'Submit Answer',
     },
     choices: {
-      type: Object,
+      type: Array,
       default() {
-        return {};
+        return [];
       },
     },
     customAnswerLabel: {
