@@ -105,7 +105,7 @@ export default {
           this.submit()
             .then(() => this.submitted = true)
             .then(response => this.submitSuccessHook(response))
-            .catch(error => {
+            .catch((error) => {
               this.error = true;
               this.submitErrorHook(error);
             });
@@ -174,6 +174,9 @@ export default {
 
       return axios({
         method: 'POST',
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest',
+        },
         url: this.fieldGoalEndpoint || this.endpoint,
         data: {
           answer: this.formattedAnswer,

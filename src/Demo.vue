@@ -6,7 +6,7 @@
     endpoint="https://jsonplaceholder.typicode.com/posts"
     error-message="There was a problem submitting your favorite candy."
     :multiple-choice="false"
-    :request-config="{ 'X-Requested-With': 'XMLHttpRequest' }"
+    :request-config="{ timeout: 1000 }"
     :submit-error-hook="onError"
     :submit-success-hook="onSuccess"
     thank-you-message="Thanks for your opinion on rainbow candy!"
