@@ -59,7 +59,7 @@ Now you can use the components in your markup:
 <poll :choices="{ 'banana': 'Banana', 'apple': 'Apple' }"></poll>
 ```
 
-Here's an [example on JSBin](https://jsbin.com/zohebew/edit?html,js,output).
+Here's an [example on JSBin](https://jsbin.com/zohebew/edit?html,css,js,output).
 
 ## Usage
 
