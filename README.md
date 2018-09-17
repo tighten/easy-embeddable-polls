@@ -1,6 +1,6 @@
 # easy-embeddable-polls
 
-![Image of easy-embeddable-polls demo](https://i.imgur.com/0kh5gvt.png)
+![Image of easy-embeddable-polls demo](https://i.imgur.com/MGe88OW.png)
 
 ## Overview
 
