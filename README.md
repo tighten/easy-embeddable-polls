@@ -43,7 +43,7 @@ Simply include `vue` & `easy-embeddable-polls` - we recommend using [unpkg](http
 <!-- use the latest release -->
 <script src="https://unpkg.com/easy-embeddable-polls@latest"></script>
 <!-- or point to a specific release -->
-<script src="https://unpkg.com/easy-embeddable-polls@1.0.0"></script>
+<script src="https://unpkg.com/easy-embeddable-polls@0.2.0"></script>
 ```
 
 Then register any relevant components in your JavaScript:
@@ -75,9 +75,9 @@ The basic `Poll` component offers a handful of props that allow you to customize
 | buttonText | String | "Submit Answer" | Text that will appear in the submit button. |
 | choices | Object | `{}` | The answers users can choose in your poll. Should be formatted as a key value object. Example: `{ 'banana_bread': 'Banana Bread' }` |
 | customAnswerLabel | String | "Other" | The label that will appear for the custom answer option. |
-| endpoint | String | undefined | A URL where your poll answers will be submitted to. |
+| endpoint | String | undefined | A URL where your poll answers will be submitted to. Alternatively, if your form is submitting to a [FieldGoal](https://fieldgoal.io) form, the `fieldGoalFormKey` prop can be used. |
 | errorMessage | String | "There was an error submitting your answer." | A message that will be displayed if there is an error submitting your poll. |
-| fieldGoalFormKey | String | undefined| Form key for a [FieldGoal](https://fieldgoal.io) form. If used, a FieldGoal URL will be automatically used as the endpoint.|
+| fieldGoalFormKey | String | undefined| Form key for a [FieldGoal](https://fieldgoal.io) form. If used, the `endpoint` prop will be overwritten with a FieldGoal URL. |
 | multipleChoice | Boolean | false | Determines whether or not a user can choose choose multiple answers. |
 | requestConfig | Object |  `{}`  | An [axios](https://github.com/axios/axios) configuration object that will be used on your poll submission request. |
 | submitErrorHook | Function | Empty function | A callback that is run when an error is encountered after a poll is submitted. Receives an error object as a parameter. |
