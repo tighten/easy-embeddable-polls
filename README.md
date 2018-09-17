@@ -1,6 +1,8 @@
 # easy-embeddable-polls
 
-![Image of easy-embeddable-polls demo](https://i.imgur.com/MGe88OW.png)
+![Image of easy-embeddable-polls demo](https://i.imgur.com/Sb0vktM.png)
+
+**[View Demo](https://jsbin.com/zohebew/edit?html,css,js,output)**
 
 ## Overview
 
