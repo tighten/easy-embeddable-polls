@@ -103,7 +103,9 @@ export default {
       buttonEvents: {
         click: () => {
           this.submit()
-            .then(() => this.submitted = true)
+            .then(() => {
+              this.submitted = true;
+            })
             .then(response => this.submitSuccessHook(response))
             .catch((error) => {
               this.error = true;
