@@ -21,11 +21,11 @@ $ npm install easy-embeddable-polls --save
 Then register any relevant components in your JavaScript:
 
 ```js
-import Vue from 'vue'
-import { Poll, RenderlessPoll } from 'easy-embeddable-polls'
+import Vue from 'vue';
+import { Poll, RenderlessPoll } from 'easy-embeddable-polls';
 
-Vue.component('poll', Poll)
-Vue.component('renderless-poll', RenderlessPoll)
+Vue.component('poll', Poll);
+Vue.component('renderless-poll', RenderlessPoll);
 ```
 
 Now you can use the components in your markup:
