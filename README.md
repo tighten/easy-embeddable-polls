@@ -79,7 +79,7 @@ Simply include `vue` & `easy-embeddable-polls` - we recommend using [unpkg](http
 <script src="https://unpkg.com/easy-embeddable-polls@latest"></script>
 ```
 
-> Note: You can point to a specific version of either package by replacing `@latest` with a specific version number, e.g. `easy-embeddable-polls@0.2.1`.
+> Note: You can point to a specific version of either package by replacing `@latest` with a specific version number, e.g. `easy-embeddable-polls@0.2.3`.
 
 You can optionally include our default css file, which includes basic styling for the poll:
 
@@ -147,12 +147,8 @@ Below is an example of an implementation of the `RenderlessPoll` component, incl
 ```js
 <renderless-poll endpoint="http://www.example.com" :choices="['Skittles', 'Starburst', 'Nerds']">
   <div slot-scope="{ allowCustomAnswer, buttonEvents, buttonText, choices, choiceAttrs, choiceEvents, customAnswerChoiceAttrs, customAnswerChoiceEvents, customAnswerChoiceSelected, customAnswerInputAttrs, customAnswerInputEvents, customAnswerLabel, error, errorMessage, inputType, submitted, thankYouMessage, title }">
-    <div v-if="error">
-      {{ errorMessage }}
-    </div>
-    <div v-else-if="submitted">
-      {{ thankYouMessage }}
-    </div>
+    <div v-if="error" v-html="errorMessage"></div>
+    <div v-else-if="submitted" v-html="thankYouMessage"></div>
     <div v-else>
       <span v-if="title">
         {{ title }}
