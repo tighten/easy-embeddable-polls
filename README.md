@@ -14,7 +14,7 @@ This option gives you complete control over the markup of the poll while still a
 
 ## Install
 
-#### I need a working poll right now for my Wordpres/Drupal/etc site!
+#### Quick and Easy (ideal for Wordpress/Drupal/etc sites where you need a working poll ASAP)
 
 Add this code to your `<head>` tag:
 
@@ -119,6 +119,12 @@ The basic `Poll` component offers a handful of props that allow you to customize
 #### Styling
 
 The `Poll` component uses semantic CSS class names to give you control over the look and feel of your poll. You can see each class and how they are used in [our demo](https://jsbin.com/zohebew/edit?css,output).
+
+Alternatively, you can include our default CSS file which adds some basic styling to the poll:
+
+```html
+<link rel="stylesheet" href="https://unpkg.com/easy-embeddable-polls@latest/dist/easyEmbeddablePolls.css">
+```
 
 ### `RenderlessPoll` Component
 
