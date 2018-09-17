@@ -19,19 +19,29 @@ This option gives you complete control over the markup of the poll while still a
 Add this code to your `<head>` tag:
 
 ```html
+<link rel="stylesheet" href="https://unpkg.com/easy-embeddable-polls@latest/dist/easyEmbeddablePolls.css">
+```
+
+Then add this code right before your `</body>` tag:
+
+```html
 <script src="https://unpkg.com/vue@latest"></script>
 <script src="https://unpkg.com/easy-embeddable-polls@latest"></script>
 <script type="text/javascript">
   Vue.component('poll', easyEmbeddablePolls.Poll);
   Vue.component('renderless-poll', easyEmbeddablePolls.RenderlessPoll);
+  new Vue({
+    el: '#poll',
+  });
 </script>
-<link rel="stylesheet" href="https://unpkg.com/easy-embeddable-polls@latest/dist/easyEmbeddablePolls.css">
 ```
 
-Now you can use the `<poll>` component anywhere in your HTML:
+Now place the following markup where you want the poll to appear:
 
 ```html
-<poll :choices="['Skittles', 'Starburst', 'Nerds']" endpoint="https://example.com"></poll>
+<div id="poll">
+  <poll :choices="['Skittles', 'Starburst', 'Nerds']" endpoint="https://example.com"></poll>
+</div>
 ```
 
 Just replace the `choices` values with your actual choices and the `endpoint` with your URL.
@@ -84,7 +94,7 @@ Vue.component('poll', easyEmbeddablePolls.Poll);
 Vue.component('renderless-poll', easyEmbeddablePolls.RenderlessPoll);
 ```
 
-Now you can use the components in your markup:
+Now you can use the components inside your Vue app:
 
 ```html
 <poll :choices="['Skittles', 'Starburst', 'Nerds']"></poll>
