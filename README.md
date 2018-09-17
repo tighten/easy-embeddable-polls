@@ -40,11 +40,10 @@ Simply include `vue` & `easy-embeddable-polls` - we recommend using [unpkg](http
 
 ```html
 <script src="https://unpkg.com/vue@latest"></script>
-<!-- use the latest release -->
 <script src="https://unpkg.com/easy-embeddable-polls@latest"></script>
-<!-- or point to a specific release -->
-<script src="https://unpkg.com/easy-embeddable-polls@0.2.0"></script>
 ```
+
+> Note: You can point to a specific version of either package by replacing `@latest` with a specific version number, e.g. `easy-embeddable-polls@0.2.0`.
 
 Then register any relevant components in your JavaScript:
 
@@ -56,14 +55,14 @@ Vue.component('renderless-poll', easyEmbeddablePolls.RenderlessPoll);
 Now you can use the components in your markup:
 
 ```html
-<poll :choices="{ 'banana': 'Banana', 'apple': 'Apple' }"></poll>
+<poll :choices="{ 'wheat_bread': 'Wheat Bread', 'sourdough_bread': 'Sourdough Bread' }"></poll>
 ```
 
 Here's an [example on JSBin](https://jsbin.com/zohebew/edit?html,css,js,output).
 
 ## Usage
 
-### Poll
+### `Poll` Component
 
 The basic `Poll` component offers a handful of props that allow you to customize your poll. These props are outlined below:
 
@@ -85,9 +84,11 @@ The basic `Poll` component offers a handful of props that allow you to customize
 | thankYouMessage | String | "Your answer has been submitted." | A message that will be displayed after a user submits your poll. |
 | title | String | undefined | A title that will appear at the top of your poll. |
 
-An implementation of the `Poll` component can be seen in [the demo](https://github.com/tightenco/easy-embeddable-polls/blob/master/src/Demo.vue).
+#### Styling
 
-### RenderlessPoll
+The `Poll` component uses semantic CSS class names to give you control over the look and feel of your poll. You can see each class and how they are used in [our JSBin demo](https://jsbin.com/zohebew/edit?html,css,js,output).
+
+### `RenderlessPoll` Component
 
 A `RenderlessPoll` component is offered in addition to the `Poll` component for situations where you need to heavily customize the outputted markup of the poll.
 The `RenderlessPoll` component follows the [renderless component pattern](https://adamwathan.me/renderless-components-in-vuejs/).
@@ -143,6 +144,27 @@ Below is an example of an implementation of the `RenderlessPoll` component, incl
     </div>
   </div>
 </renderless-poll>
+```
+
+### Request Payload
+
+Both components work by sending a simple payload with a single `answer` key to your specified endpoint.
+The value is either a string (if the user chose a single answer) or an array (if the user chose multiple answers).
+Below are some examples:
+
+```
+{
+  answer: 'wheat_bread'
+}
+```
+
+```
+{
+  answer: [
+    'wheat_bread',
+    'sourdough_bread',
+  ]
+}
 ```
 
 ## License
