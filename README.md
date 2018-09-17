@@ -14,6 +14,28 @@ This option gives you complete control over the markup of the poll while still a
 
 ## Install
 
+#### I need a working poll right now for my Wordpres/Drupal/etc site!
+
+Add this code to your `<head>` tag:
+
+```html
+<script src="https://unpkg.com/vue@latest"></script>
+<script src="https://unpkg.com/easy-embeddable-polls@latest"></script>
+<script type="text/javascript">
+  Vue.component('poll', easyEmbeddablePolls.Poll);
+  Vue.component('renderless-poll', easyEmbeddablePolls.RenderlessPoll);
+</script>
+<link rel="stylesheet" href="https://unpkg.com/easy-embeddable-polls@latest/dist/easyEmbeddablePolls.css">
+```
+
+Now you can use the `<poll>` component anywhere in your HTML:
+
+```html
+<poll :choices="['Skittles', 'Starburst', 'Nerds']" endpoint="https://example.com"></poll>
+```
+
+Just replace the `choices` values with your actual choices and the `endpoint` with your URL.
+
 #### NPM
 
 First, install `easy-embeddable-polls` via your preferred package manager:
@@ -49,6 +71,12 @@ Simply include `vue` & `easy-embeddable-polls` - we recommend using [unpkg](http
 
 > Note: You can point to a specific version of either package by replacing `@latest` with a specific version number, e.g. `easy-embeddable-polls@0.2.1`.
 
+Additionally, you can optionally include our default css file, which includes basic styling for the poll:
+
+```html
+<link rel="stylesheet" href="https://unpkg.com/easy-embeddable-polls@latest/dist/easyEmbeddablePolls.css">
+```
+
 Then register any relevant components in your JavaScript:
 
 ```js
@@ -62,7 +90,7 @@ Now you can use the components in your markup:
 <poll :choices="['Skittles', 'Starburst', 'Nerds']"></poll>
 ```
 
-Here's an [example on JSBin](https://jsbin.com/zohebew/edit?html,css,js,output).
+See a full example on [our demo](https://jsbin.com/zohebew/edit?html,css,js,output).
 
 ## Usage
 
@@ -90,7 +118,7 @@ The basic `Poll` component offers a handful of props that allow you to customize
 
 #### Styling
 
-The `Poll` component uses semantic CSS class names to give you control over the look and feel of your poll. You can see each class and how they are used in [our JSBin demo](https://jsbin.com/zohebew/edit?html,css,js,output).
+The `Poll` component uses semantic CSS class names to give you control over the look and feel of your poll. You can see each class and how they are used in [our demo](https://jsbin.com/zohebew/edit?css,output).
 
 ### `RenderlessPoll` Component
 
@@ -101,7 +129,7 @@ We will not dive into the concept of renderless components in this documentation
 Below is an example of an implementation of the `RenderlessPoll` component, including all slot props. It should be noted as well that the [`Poll` component](https://github.com/tightenco/easy-embeddable-polls/blob/master/src/components/Poll.vue) itself is an implementation of the `RenderlessPoll` component.
 
 ```js
-<renderless-poll endpoint="http://www.example.com" :choices="['Banana Bread', 'Wheat Bread', 'Sourdough Bread']">
+<renderless-poll endpoint="http://www.example.com" :choices="['Skittles', 'Starburst', 'Nerds']">
   <div slot-scope="{ allowCustomAnswer, buttonEvents, buttonText, choices, choiceAttrs, choiceEvents, customAnswerChoiceAttrs, customAnswerChoiceEvents, customAnswerChoiceSelected, customAnswerInputAttrs, customAnswerInputEvents, customAnswerLabel, error, errorMessage, inputType, submitted, thankYouMessage, title }">
     <div v-if="error">
       {{ errorMessage }}
