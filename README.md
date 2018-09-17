@@ -71,7 +71,7 @@ Simply include `vue` & `easy-embeddable-polls` - we recommend using [unpkg](http
 
 > Note: You can point to a specific version of either package by replacing `@latest` with a specific version number, e.g. `easy-embeddable-polls@0.2.1`.
 
-Additionally, you can optionally include our default css file, which includes basic styling for the poll:
+You can optionally include our default css file, which includes basic styling for the poll:
 
 ```html
 <link rel="stylesheet" href="https://unpkg.com/easy-embeddable-polls@latest/dist/easyEmbeddablePolls.css">
