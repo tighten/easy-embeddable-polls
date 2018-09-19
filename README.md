@@ -38,7 +38,7 @@ Then add this code right before your `</body>` tag:
 
 Now place the following markup where you want the poll to appear:
 
-```html
+```vue
 <div id="poll">
   <poll :choices="['Skittles', 'Starburst', 'Nerds']" endpoint="https://example.com"></poll>
 </div>
@@ -68,7 +68,7 @@ Vue.component('renderless-poll', RenderlessPoll);
 
 Now you can use the components in your markup:
 
-```html
+```vue
 <poll :choices="['Skittles', 'Starburst', 'Nerds']"></poll>
 ```
 
@@ -100,7 +100,7 @@ Vue.component('renderless-poll', easyEmbeddablePolls.RenderlessPoll);
 
 Now you can use the components inside your Vue app:
 
-```html
+```vue
 <poll :choices="['Skittles', 'Starburst', 'Nerds']"></poll>
 ```
 
@@ -148,7 +148,7 @@ We will not dive into the concept of renderless components in this documentation
 
 Below is an example of an implementation of the `RenderlessPoll` component, including all slot props. It should be noted as well that the [`Poll` component](https://github.com/tightenco/easy-embeddable-polls/blob/master/src/components/Poll.vue) itself is an implementation of the `RenderlessPoll` component.
 
-```js
+```vue
 <renderless-poll endpoint="http://www.example.com" :choices="['Skittles', 'Starburst', 'Nerds']">
   <div slot-scope="{ allowCustomAnswer, buttonEvents, buttonText, choices, choiceAttrs, choiceEvents, customAnswerChoiceAttrs, customAnswerChoiceEvents, customAnswerChoiceSelected, customAnswerInputAttrs, customAnswerInputEvents, customAnswerLabel, error, errorMessage, inputType, submitted, thankYouMessage, title }">
     <div v-if="error" v-html="errorMessage"></div>
@@ -200,13 +200,13 @@ Both components work by sending a payload with a single `answer` key to your spe
 The value is either a string (for single answer polls) or an array (for polls that allow multiple choice).
 Below are some examples:
 
-```json
+```js
 {
   answer: 'Starburst'
 }
 ```
 
-```json
+```js
 {
   answer: [
     'Skittles',
