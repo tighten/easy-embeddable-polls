@@ -1,6 +1,6 @@
 {
   "name": "easy-embeddable-polls",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "main": "./dist/easyEmbeddablePolls.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",

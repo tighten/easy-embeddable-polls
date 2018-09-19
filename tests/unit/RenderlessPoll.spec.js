@@ -33,17 +33,19 @@ describe('RenderlessPoll.vue', () => {
     expect(wrapper.vm.fieldGoalEndpoint).toEqual('https://fieldgoal.io/f/tGhtN');
   });
 
-  it('returns the answer as a string if there is only one answer', () => {
+  it('returns the answer as a string if there multiple choice is false', () => {
     const wrapper = mount(RenderlessPoll, {
       scopedSlots: { default: () => {} },
+      propsData: { 'multiple-choice': false },
     });
     wrapper.setData({ answer: ['bar'] })
     expect(wrapper.vm.formattedAnswer).toEqual('bar');
   });
 
-  it('returns the answer as an array if there are multiple answers', () => {
+  it('returns the answer as an array if multiple choice is true', () => {
     const wrapper = mount(RenderlessPoll, {
       scopedSlots: { default: () => {} },
+      propsData: { 'multiple-choice': true },
     });
     wrapper.setData({ answer: ['bar', 'foo'] })
     expect(wrapper.vm.formattedAnswer).toEqual(['bar', 'foo']);

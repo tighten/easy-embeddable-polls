@@ -28,6 +28,11 @@
   margin-right: 5px;
 }
 
+.easy-embeddable-poll-custom-answer-input-wrapper {
+  margin-left: 22px;
+  margin-top: 5px;
+}
+
 .easy-embeddable-poll-submit-wrapper {
   background: #f5f9fc;
   padding: 20px;

@@ -1,6 +1,6 @@
 # easy-embeddable-polls
 
-![Image of easy-embeddable-polls demo](https://i.imgur.com/Sb0vktM.png)
+![Image of easy-embeddable-polls demo](https://i.imgur.com/Bd1THPG.png)
 
 **[View Demo](https://jsbin.com/zohebew/edit?html,css,js,output)**
 
@@ -46,6 +46,8 @@ Now place the following markup where you want the poll to appear:
 
 Just replace the `choices` values with your actual choices and the `endpoint` with your URL.
 
+---
+
 #### NPM
 
 First, install `easy-embeddable-polls` via your preferred package manager:
@@ -70,6 +72,8 @@ Now you can use the components in your markup:
 <poll :choices="['Skittles', 'Starburst', 'Nerds']"></poll>
 ```
 
+---
+
 #### CDN
 
 Simply include `vue` & `easy-embeddable-polls` - we recommend using [unpkg](https://unpkg.com/#/).
@@ -79,7 +83,7 @@ Simply include `vue` & `easy-embeddable-polls` - we recommend using [unpkg](http
 <script src="https://unpkg.com/easy-embeddable-polls@latest"></script>
 ```
 
-> Note: You can point to a specific version of either package by replacing `@latest` with a specific version number, e.g. `easy-embeddable-polls@0.2.3`.
+> Note: You can point to a specific version of either package by replacing `@latest` with a specific version number, e.g. `easy-embeddable-polls@0.2.4`.
 
 You can optionally include our default css file, which includes basic styling for the poll:
 
@@ -193,20 +197,20 @@ Below is an example of an implementation of the `RenderlessPoll` component, incl
 ### Request Payload
 
 Both components work by sending a payload with a single `answer` key to your specified endpoint.
-The value is either a string (if the user chose a single answer) or an array (if the user chose multiple answers).
+The value is either a string (for single answer polls) or an array (for polls that allow multiple choice).
 Below are some examples:
 
-```
+```json
 {
   answer: 'Starburst'
 }
 ```
 
-```
+```json
 {
   answer: [
     'Skittles',
-    'Starburst',
+    'Starburst'
   ]
 }
 ```

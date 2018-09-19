@@ -83,18 +83,14 @@ export default {
       return null;
     },
     formattedAnswer() {
-      if (this.answer instanceof Array && this.answer.length === 1) {
+      if (!this.multipleChoice) {
         return this.answer[0];
       }
 
       return this.answer;
     },
     inputType() {
-      if (this.multipleChoice) {
-        return 'checkbox';
-      }
-
-      return 'radio';
+      return this.multipleChoice ? 'checkbox' : 'radio';
     },
   },
   render() {
@@ -103,10 +99,10 @@ export default {
       buttonEvents: {
         click: () => {
           this.submit()
-            .then(() => {
+            .then((response) => {
               this.submitted = true;
+              this.submitSuccessHook(response);
             })
-            .then(response => this.submitSuccessHook(response))
             .catch((error) => {
               this.error = true;
               this.submitErrorHook(error);
@@ -131,7 +127,8 @@ export default {
               this.answer.splice(this.answer.indexOf(value), 1);
             }
           } else {
-            this.answer = value;
+            this.answer = [];
+            this.answer.push(value);
             this.customAnswerChoiceSelected = false;
           }
         },
@@ -173,7 +170,6 @@ export default {
       if (this.customAnswerChoiceSelected) {
         this.answer.push(this.customAnswer);
       }
-
       return axios({
         method: 'POST',
         headers: {
