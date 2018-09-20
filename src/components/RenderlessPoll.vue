@@ -124,7 +124,7 @@ export default {
         type: this.inputType,
       },
       choiceEvents: {
-        input: (e) => {
+        change: (e) => {
           const value = e.target.value;
 
           if (this.multipleChoice) {
@@ -145,7 +145,7 @@ export default {
         type: this.inputType,
       },
       customAnswerChoiceEvents: {
-        input: () => {
+        change: () => {
           this.customAnswerChoiceSelected = !this.customAnswerChoiceSelected;
 
           if (!this.multipleChoice) {
