@@ -54,6 +54,11 @@
   background: #000099;
 }
 
+.easy-embeddable-poll-submit[disabled] {
+  background: #7b8392;
+  cursor: not-allowed;
+}
+
 .easy-embeddable-poll-error {
   background: #fff;
   padding: 20px;

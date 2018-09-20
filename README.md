@@ -38,7 +38,7 @@ Then add this code right before your `</body>` tag:
 
 Now place the following markup where you want the poll to appear:
 
-```vue
+```
 <div id="poll">
   <poll :choices="['Skittles', 'Starburst', 'Nerds']" endpoint="https://example.com"></poll>
 </div>
@@ -68,7 +68,7 @@ Vue.component('renderless-poll', RenderlessPoll);
 
 Now you can use the components in your markup:
 
-```vue
+```
 <poll :choices="['Skittles', 'Starburst', 'Nerds']"></poll>
 ```
 
@@ -83,7 +83,7 @@ Simply include `vue` & `easy-embeddable-polls` - we recommend using [unpkg](http
 <script src="https://unpkg.com/easy-embeddable-polls@latest"></script>
 ```
 
-> Note: You can point to a specific version of either package by replacing `@latest` with a specific version number, e.g. `easy-embeddable-polls@0.2.5`.
+> Note: You can point to a specific version of either package by replacing `@latest` with a specific version number, e.g. `easy-embeddable-polls@0.2.6`.
 
 You can optionally include our default css file, which includes basic styling for the poll:
 
@@ -100,7 +100,7 @@ Vue.component('renderless-poll', easyEmbeddablePolls.RenderlessPoll);
 
 Now you can use the components inside your Vue app:
 
-```vue
+```
 <poll :choices="['Skittles', 'Starburst', 'Nerds']"></poll>
 ```
 
@@ -148,9 +148,9 @@ We will not dive into the concept of renderless components in this documentation
 
 Below is an example of an implementation of the `RenderlessPoll` component, including all slot props. It should be noted as well that the [`Poll` component](https://github.com/tightenco/easy-embeddable-polls/blob/master/src/components/Poll.vue) itself is an implementation of the `RenderlessPoll` component.
 
-```vue
+```html
 <renderless-poll endpoint="http://www.example.com" :choices="['Skittles', 'Starburst', 'Nerds']">
-  <div slot-scope="{ allowCustomAnswer, buttonEvents, buttonText, choices, choiceAttrs, choiceEvents, customAnswerChoiceAttrs, customAnswerChoiceEvents, customAnswerChoiceSelected, customAnswerInputAttrs, customAnswerInputEvents, customAnswerLabel, error, errorMessage, inputType, submitted, thankYouMessage, title }">
+  <div slot-scope="{ allowCustomAnswer, buttonAttrs, buttonEvents, buttonText, choices, choiceAttrs, choiceEvents, customAnswerChoiceAttrs, customAnswerChoiceEvents, customAnswerChoiceSelected, customAnswerInputAttrs, customAnswerInputEvents, customAnswerLabel, error, errorMessage, inputType, submitted, thankYouMessage, title }">
     <div v-if="error" v-html="errorMessage"></div>
     <div v-else-if="submitted" v-html="thankYouMessage"></div>
     <div v-else>
@@ -186,6 +186,7 @@ Below is an example of an implementation of the `RenderlessPoll` component, incl
       <button
         type="submit"
         v-on="buttonEvents"
+        v-bind="buttonAttrs"
       >
         {{ buttonText }}
       </button>

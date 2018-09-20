@@ -96,8 +96,15 @@ export default {
   render() {
     return this.$scopedSlots.default({
       allowCustomAnswer: this.allowCustomAnswer,
+      buttonAttrs: {
+        disabled: this.answer.length === 0 && !this.customAnswerChoiceSelected,
+      },
       buttonEvents: {
         click: () => {
+          if (this.answer.length === 0) {
+            return;
+          }
+
           this.submit()
             .then((response) => {
               this.submitted = true;
@@ -170,6 +177,7 @@ export default {
       if (this.customAnswerChoiceSelected) {
         this.answer.push(this.customAnswer);
       }
+
       return axios({
         method: 'POST',
         headers: {
