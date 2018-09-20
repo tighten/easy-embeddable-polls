@@ -28,10 +28,9 @@
               v-on="customAnswerChoiceEvents"
             />
             <label for="custom_answer_choice">{{ customAnswerLabel }}</label>
-            <div class="easy-embeddable-poll-custom-answer-input-wrapper">
+            <div v-if="customAnswerChoiceSelected" class="easy-embeddable-poll-custom-answer-input-wrapper">
               <input
                 type="text"
-                v-if="customAnswerChoiceSelected"
                 v-bind="customAnswerInputAttrs"
                 v-on="customAnswerInputEvents"
               />
