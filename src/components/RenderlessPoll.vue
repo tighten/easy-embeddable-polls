@@ -6,7 +6,7 @@ export default {
   data() {
     return {
       answer: [],
-      customAnswer: null,
+      customAnswer: '',
       customAnswerChoiceSelected: false,
       error: false,
       submitted: false,
@@ -97,11 +97,11 @@ export default {
     return this.$scopedSlots.default({
       allowCustomAnswer: this.allowCustomAnswer,
       buttonAttrs: {
-        disabled: this.answer.length === 0 && !this.customAnswerChoiceSelected,
+        disabled: this.answer.length === 0 && (!this.customAnswerChoiceSelected || (this.customAnswerChoiceSelected && this.customAnswer.length === 0)),
       },
       buttonEvents: {
         click: () => {
-          if (this.answer.length === 0) {
+          if (this.answer.length === 0 && this.customAnswer.length === 0) {
             return;
           }
 
