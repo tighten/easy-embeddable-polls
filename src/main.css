@@ -33,6 +33,11 @@
   margin-top: 5px;
 }
 
+.easy-embeddable-poll-custom-answer-input-wrapper input {
+  border: 1px solid grey;
+  padding: 0.25em;
+}
+
 .easy-embeddable-poll-submit-wrapper {
   background: #f5f9fc;
   padding: 20px;
